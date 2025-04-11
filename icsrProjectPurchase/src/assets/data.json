@@ -1,0 +1,454 @@
+{
+	"projects": [
+	  {
+		"projectname": "AI Research Initiative",
+		"projectid": "PRJ-2024-001",
+		"projectduration": 36,
+		"projectgrantno": 5623,
+		"faculty": "Dr. John Doe",
+		"facultydept": "Data Science",
+		"facultyemail":"john@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Artificial Intelligence",
+		"totalcost": 500000,
+		"purchases": [
+		  {
+			"itemdesc": "High-Performance GPU",
+			"itemcategory": "Equipment",
+			"quantity": 5,
+			"estimatedcost": 10000,
+			"preferredvendors": ["NVIDIA", "AMD", "Intel"],
+			"justification": "Required for model training and high-performance computations."
+		  },
+		  {
+			"itemdesc": "Data Storage Solution",
+			"itemcategory": "Consumable",
+			"quantity": 10,
+			"estimatedcost": 2500,
+			"preferredvendors": ["Seagate", "Western Digital"],
+			"justification": "Needed for data storage during project duration."
+		  },
+		  {
+			"itemdesc": "Conference Travel",
+			"itemcategory": "Travel",
+			"quantity": 1,
+			"estimatedcost": 3000,
+			"preferredvendors": [],
+			"justification": "For presenting research findings at an international conference."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 100000,
+			"consumables": 50000,
+			"contingency": 10000,
+			"travel": 20000,
+			"manpower": 150000,
+			"overhead": 50000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 80000,
+			"consumables": 30000,
+			"contingency": 8000,
+			"travel": 15000,
+			"manpower": 130000,
+			"overhead": 40000
+		  },
+		  {
+			"yearNo": 3,
+			"equipments": 50000,
+			"consumables": 20000,
+			"contingency": 7000,
+			"travel": 10000,
+			"manpower": 100000,
+			"overhead": 30000
+		  }
+		],
+		"documents": [{"name":"requirement","url":"assets/requirement.pdf"}],
+		"status": {"status":"Pending","by":"","date":"12/11/2024"},
+		"statushist" : [{"status":"Pending","by":"","date":"12/11/2024"}],
+		"remarks": ""
+	  },
+	  {
+		"projectname": "DS Research Initiative",
+		"projectid": "PRJ-2024-002",
+		"projectduration": 24,
+		"projectgrantno": 8732,
+		"faculty": "Dr. Jane Smith",
+		"facultydept": "Data Science",
+		"facultyemail":"janesmith@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Data Science",
+		"totalcost": 300000,
+		"purchases": [
+		  {
+			"itemdesc": "Cloud Computing Credits",
+			"itemcategory": "Service",
+			"quantity": 1,
+			"estimatedcost": 5000,
+			"preferredvendors": ["AWS", "Google Cloud", "Azure"],
+			"justification": "Needed for data processing and model deployment."
+		  },
+		  {
+			"itemdesc": "Data Cleaning Tools",
+			"itemcategory": "Software",
+			"quantity": 5,
+			"estimatedcost": 1500,
+			"preferredvendors": ["OpenRefine", "Alteryx"],
+			"justification": "Required for efficient data cleaning and pre-processing."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 60000,
+			"consumables": 20000,
+			"contingency": 5000,
+			"travel": 10000,
+			"manpower": 80000,
+			"overhead": 30000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 40000,
+			"consumables": 15000,
+			"contingency": 4000,
+			"travel": 5000,
+			"manpower": 70000,
+			"overhead": 20000
+		  }
+		],
+		"documents": [{"name":"datascience","url":"assets/datascience.pdf"}],
+		"status": {"status":"Sent back","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"},
+		"statushist" : [{"status":"Pending","by":"","date":"12/10/24"},{"status":"Sent back","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"}],
+		"remarks": "ALter the expense for the Cloud Computing credits"
+	  },
+	  {
+		"projectname": "Quantum Computing Initiative",
+		"projectid": "PRJ-2024-003",
+		"projectduration": 48,
+		"projectgrantno": 9912,
+		"faculty": "Dr. Albert King",
+		"facultydept": "Computer Science",
+		"facultyemail":"Albert@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Quantum Computing",
+		"totalcost": 1000000,
+		"purchases": [
+		  {
+			"itemdesc": "Quantum Simulator Software",
+			"itemcategory": "Software",
+			"quantity": 3,
+			"estimatedcost": 20000,
+			"preferredvendors": ["IBM", "D-Wave"],
+			"justification": "Required for quantum algorithm simulation."
+		  },
+		  {
+			"itemdesc": "Quantum Processing Unit Access",
+			"itemcategory": "Service",
+			"quantity": 1,
+			"estimatedcost": 50000,
+			"preferredvendors": ["IBM", "Rigetti"],
+			"justification": "Access to specialized hardware for testing quantum algorithms."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 200000,
+			"consumables": 80000,
+			"contingency": 15000,
+			"travel": 30000,
+			"manpower": 300000,
+			"overhead": 100000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 150000,
+			"consumables": 50000,
+			"contingency": 10000,
+			"travel": 20000,
+			"manpower": 250000,
+			"overhead": 80000
+		  },
+		  {
+			"yearNo": 3,
+			"equipments": 100000,
+			"consumables": 30000,
+			"contingency": 9000,
+			"travel": 15000,
+			"manpower": 200000,
+			"overhead": 60000
+		  },
+		  {
+			"yearNo": 4,
+			"equipments": 50000,
+			"consumables": 15000,
+			"contingency": 6000,
+			"travel": 10000,
+			"manpower": 150000,
+			"overhead": 40000
+		  }
+		],
+		"documents": [{"name":"quantum.pdf","url":"assets/quantum.pdf"}],
+		"status": {"status":"Forwarded to vendor","by":"Dean Academic Affairs, IIT Palakkad","date":"11/16/2024"},
+		"statushist":[{"status":"Pending","by":"","date":"12/11/2024"},{"status":"Approved","by":"Dean Academic Affairs, IIT Palakkad","date":"11/14/2024"},{"status":"Forwarded to vendor","by":"Dean Academic Affairs, IIT Palakkad","date":"11/16/2024"}],
+		"remarks": ""
+	  },
+	  {
+		"projectname": "Robotics Research Initiative",
+		"projectid": "PRJ-2024-004",
+		"projectduration": 36,
+		"projectgrantno": 4578,
+		"faculty": "Dr. Emily White",
+		"facultydept": "Computer Science",
+		"facultyemail":"emily@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Robotics",
+		"totalcost": 400000,
+		"purchases": [
+		  {
+			"itemdesc": "Robotic Arm Kit",
+			"itemcategory": "Equipment",
+			"quantity": 3,
+			"estimatedcost": 15000,
+			"preferredvendors": ["Boston Dynamics", "KUKA"],
+			"justification": "Essential for developing robotic prototypes."
+		  },
+		  {
+			"itemdesc": "Sensors and Actuators",
+			"itemcategory": "Components",
+			"quantity": 20,
+			"estimatedcost": 5000,
+			"preferredvendors": ["Bosch", "Honeywell"],
+			"justification": "Required for building robotic interfaces."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 80000,
+			"consumables": 30000,
+			"contingency": 8000,
+			"travel": 10000,
+			"manpower": 100000,
+			"overhead": 40000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 60000,
+			"consumables": 20000,
+			"contingency": 6000,
+			"travel": 8000,
+			"manpower": 90000,
+			"overhead": 30000
+		  },
+		  {
+			"yearNo": 3,
+			"equipments": 40000,
+			"consumables": 15000,
+			"contingency": 5000,
+			"travel": 5000,
+			"manpower": 70000,
+			"overhead": 20000
+		  }
+		],
+		"documents": [{"name":"robotics","url":"assets/robotics.pdf"}],
+		"status":{"status":"Approved","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"},
+		"statushist" : [{"status":"Pending","by":"","date":"12/10/2024"},{"status":"Approved","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"}],
+		"remarks": ""
+	  },
+	  {
+		"projectname": "Sustainable Energy Solutions",
+		"projectid": "PRJ-2024-005",
+		"projectduration": 60,
+		"projectgrantno": 1120,
+		"faculty": "Dr. Raj Patel",
+		"facultydept": "Biology",
+		"facultyemail":"rajpatel@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Sustainable Energy",
+		"totalcost": 1200000,
+		"purchases": [
+		  {
+			"itemdesc": "Solar Panels",
+			"itemcategory": "Equipment",
+			"quantity": 50,
+			"estimatedcost": 50000,
+			"preferredvendors": ["First Solar", "SunPower"],
+			"justification": "To build a renewable energy testbed."
+		  },
+		  {
+			"itemdesc": "Energy Storage Batteries",
+			"itemcategory": "Equipment",
+			"quantity": 10,
+			"estimatedcost": 20000,
+			"preferredvendors": ["Tesla", "Panasonic"],
+			"justification": "For storing generated energy efficiently."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 250000,
+			"consumables": 100000,
+			"contingency": 20000,
+			"travel": 15000,
+			"manpower": 350000,
+			"overhead": 120000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 200000,
+			"consumables": 80000,
+			"contingency": 15000,
+			"travel": 10000,
+			"manpower": 300000,
+			"overhead": 100000
+		  },
+		  {
+			"yearNo": 3,
+			"equipments": 150000,
+			"consumables": 60000,
+			"contingency": 10000,
+			"travel": 8000,
+			"manpower": 250000,
+			"overhead": 80000
+		  },
+		  {
+			"yearNo": 4,
+			"equipments": 100000,
+			"consumables": 40000,
+			"contingency": 8000,
+			"travel": 5000,
+			"manpower": 200000,
+			"overhead": 60000
+		  },
+		  {
+			"yearNo": 5,
+			"equipments": 80000,
+			"consumables": 30000,
+			"contingency": 5000,
+			"travel": 3000,
+			"manpower": 150000,
+			"overhead": 40000
+		  }
+		],
+		"documents": [{"name":"energy.pdf","url":"assets/energy.pdf"}],
+		"status": {"status":"Rejected","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"},
+		"statushist" : [{"status":"Pending","by":"","date":"12/11/2024"},{"status":"Rejected","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"}],
+		"remarks": ""
+	  },
+	  {
+		"projectname": "cloud Research Initiative",
+		"projectid": "PRJ-2024-002",
+		"projectduration": 24,
+		"projectgrantno": 8732,
+		"faculty": "Dr. Jane Smith",
+		"facultydept": "Computer Science",
+		"facultyemail":"janesmith@gmail.com",
+		"facultyphone":"912345678",
+		"projectcategory": "Data Science",
+		"totalcost": 300000,
+		"purchases": [
+		  {
+			"itemdesc": "Cloud Computing Credits",
+			"itemcategory": "Service",
+			"quantity": 1,
+			"estimatedcost": 5000,
+			"preferredvendors": ["AWS", "Google Cloud", "Azure"],
+			"justification": "Needed for data processing and model deployment."
+		  },
+		  {
+			"itemdesc": "Data Cleaning Tools",
+			"itemcategory": "Software",
+			"quantity": 5,
+			"estimatedcost": 1500,
+			"preferredvendors": ["OpenRefine", "Alteryx"],
+			"justification": "Required for efficient data cleaning and pre-processing."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 60000,
+			"consumables": 20000,
+			"contingency": 5000,
+			"travel": 10000,
+			"manpower": 80000,
+			"overhead": 30000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 40000,
+			"consumables": 15000,
+			"contingency": 4000,
+			"travel": 5000,
+			"manpower": 70000,
+			"overhead": 20000
+		  }
+		],
+		"documents": [{"name":"datascience","url":"assets/datascience.pdf"}],
+		"status": {"status":"Rejected","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"},
+		"statushist" : [{"status":"Pending","by":"","date":"12/10/2024"},{"status":"Rejected","by":"Dean Academic Affairs, IIT Palakkad","date":"12/11/2024"}],
+		"remarks": ""
+	  },
+	  {
+		"projectname": "Climate Modeling Study",
+		"projectid": "PRJ-2024-006",
+		"projectduration": 24,
+		"projectgrantno": 7439,
+		"faculty": "Dr. Sarah Clark",
+		"facultydept": "Environmental Science",
+		"facultyemail": "sarahclark@gmail.com",
+		"facultyphone": "912345678",
+		"projectcategory": "Climate Science",
+		"totalcost": 450000,
+		"purchases": [
+		  {
+			"itemdesc": "Supercomputer Access",
+			"itemcategory": "Service",
+			"quantity": 1,
+			"estimatedcost": 30000,
+			"preferredvendors": ["HPC Center A", "HPC Center B"],
+			"justification": "Needed for complex climate simulations."
+		  },
+		  {
+			"itemdesc": "Weather Monitoring Stations",
+			"itemcategory": "Equipment",
+			"quantity": 15,
+			"estimatedcost": 20000,
+			"preferredvendors": ["Acme Weather", "WeatherTech"],
+			"justification": "Required to gather real-time climate data."
+		  }
+		],
+		"budget": [
+		  {
+			"yearNo": 1,
+			"equipments": 150000,
+			"consumables": 20000,
+			"contingency": 5000,
+			"travel": 8000,
+			"manpower": 100000,
+			"overhead": 30000
+		  },
+		  {
+			"yearNo": 2,
+			"equipments": 120000,
+			"consumables": 15000,
+			"contingency": 4000,
+			"travel": 5000,
+			"manpower": 80000,
+			"overhead": 20000
+		  }
+		],
+		"documents": [{"name": "climate_report", "url": "assets/climate_report.pdf"}],
+		"status": {"status": "Item recieved", "by": "Vendor1", "date": "12/11/2024"},
+		"statushist": [{"status": "Pending", "by": "", "date": "12/11/2024"},{"status": "Approved", "by": "Dean Academic Affairs, IIT Palakkad", "date": "12/23/2024"},{"status": "Forwarded to vendor", "by": "Dean Academic Affairs, IIT Palakkad", "date": "12/30/2024"},{"status": "Item recieved", "by": "Vendor1", "date": "01/10/2025"}],
+		"remarks": ""
+	  }
+	]
+  }
+  

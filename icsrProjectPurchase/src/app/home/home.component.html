@@ -1,0 +1,108 @@
+<div *ngIf="!display" class="mt-2">
+	<div class="row">
+		
+	  <div class="col-12 col-md-3 mb-3">
+<!-- <div class="p-2 flex-shrink"> -->
+		<div class="card">
+		  <div class="card-body">
+		
+			<ul class="nav nav-tabs">
+			  <li
+				class="nav-item"
+				*ngFor="let status of disp_stat; let i = index"
+				(click)="setActiveTab(disp_stat[i])"
+			  >
+				<a
+				  class="nav-link"
+				  [class.active]="activetab === i"
+				  role="button"
+				>
+				  {{ status }}
+				</a>
+			  </li>
+			</ul>
+  
+			<!-- Project List for Selected Tab -->
+			<div class="tab-content mt-3">
+			  <div *ngIf="proj_stat[disp_stat[activetab]]">
+				<ul class="list-group">
+					@if (activetab == 0) {
+						<app-status-cards [projects]="act_stat['Pending']" [status]="status.PENDING" (selproj)="selectProject($event)"> </app-status-cards>
+						<app-status-cards [projects]="act_stat['Sent back']" [status]="status.CLARIFICATION" (selproj)="selectProject($event)"> </app-status-cards>  
+					}
+					@if (activetab == 1){
+						<app-status-cards [projects]="act_stat['Approved']" [status]="status.APPROVED" (selproj)="selectProject($event)"></app-status-cards>
+						<app-status-cards [projects]="act_stat['Forwarded to vendor']" [status]="status.FORWARDED" (selproj)="selectProject($event)"></app-status-cards>
+						<app-status-cards [projects]="act_stat['Item recieved']" [status]="status.RECIEVED" (selproj)="selectProject($event)"></app-status-cards>
+						<app-status-cards [projects]="act_stat['Forwarded to Accounts']" [status]="status.ACCOUNTS" (selproj)="selectProject($event)"></app-status-cards>
+					}
+					@if (activetab == 2){
+						<div class="table-responsive-sm">
+							<table class="table table-hover">
+								<tbody>
+									@for (project of act_stat['Rejected']; track project.projectid) {
+								   
+									<tr>
+										<td role="button" (click)="selectProject(project)">
+												{{ project.projectname}}
+										</td>
+									</tr>
+									
+									}
+								</tbody>
+							</table>
+							<div *ngIf="!proj_stat[disp_stat[activetab]] || proj_stat[disp_stat[activetab]].length === 0">
+								<p class="alert alert-warning">No projects available for this status.</p>
+							  </div>
+						</div>
+					}
+				</ul>
+			  </div>
+			  <!-- <div *ngIf="!proj_stat[disp_stat[activetab]] || proj_stat[disp_stat[activetab]].length === 0">
+				<p class="alert alert-warning">No projects available for this status.</p>
+			  </div> -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+  
+	  
+	  <div class="col-12 col-md-9">
+		
+		<div *ngIf="!displaytables">
+		  <app-purchase-detail 
+			[project]="selectedProject"
+			(clickPreview)="displaypreview($event)"
+			(senddocs)="addnewdocs($event)"
+			(viewTables)="viewtables($event)"
+		  ></app-purchase-detail>
+		</div>
+  
+		<div *ngIf="displaytables">
+		  <app-tables
+			[projects]="projects"
+			(selected)="selectfromtable($event)"
+		  ></app-tables>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  <!-- Preview Component -->
+  <div *ngIf="display" class="container-fluid">
+	<app-preview 
+	  [project]="selectedProject"
+	  (Approve)="projapprove($event)"
+	  (Reject)="projreject($event)"
+	  (SentBack)="projsentback($event)"
+	  (forward)="projforw($event)"
+	  (comments)="commentrec($event)"
+	  (prev)="displaypreview($event)"
+	  (accounts)="projacc($event)"
+	  (recieved)="projrec($event)"
+	></app-preview>
+  </div>
+  
+
+  

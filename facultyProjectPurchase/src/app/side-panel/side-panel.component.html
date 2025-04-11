@@ -1,0 +1,119 @@
+<div class="card shadow">
+  <div class="card-header text-center fw-bold">
+    Status of Purchase Proposals
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <!-- Tabs Navigation (Bootstrap style) -->
+      <ul class="nav nav-tabs" id="projectTabs" role="tablist">
+        <li
+          class="nav-item"
+          role="presentation"
+          *ngFor="let status of statuses; let i = index"
+        >
+          <a
+            class="nav-link px-2 py-1"
+            [class.active]="activeTab === i"
+            (click)="changeTab(i)"
+            id="{{ 'tab-' + i }}"
+            data-bs-toggle="tab"
+            [attr.href]="'#' + 'tabContent-' + i"
+            role="tab"
+            [attr.aria-controls]="'tabContent-' + i"
+            [attr.aria-selected]="activeTab === i ? 'true' : 'false'"
+          >
+            {{ status }}
+          </a>
+        </li>
+      </ul>
+      <!-- Tabs Content -->
+      <div class="tab-content mt-2" id="projectTabsContent">
+        <div
+          class="tab-pane fade"
+          [class.show]="activeTab === 0"
+          [class.active]="activeTab === 0"
+          id="tabContent-0"
+          role="tabpanel"
+          aria-labelledby="tab-0"
+        >
+          <ul class="list-group">
+            <li
+              *ngFor="let project of pendingProjects"
+              class="list-group-item list-group-item-action"
+              (click)="onSelectProject(project)"
+              style="cursor: pointer"
+            >
+              {{ project.name }}
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          [class.show]="activeTab === 1"
+          [class.active]="activeTab === 1"
+          id="tabContent-1"
+          role="tabpanel"
+          aria-labelledby="tab-1"
+        >
+          <ul class="list-group">
+            <li
+              *ngFor="let project of approvedProjects"
+              class="list-group-item"
+              (click)="onSelectProject(project)"
+              style="cursor: pointer"
+            >
+              {{ project.name }}
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          [class.show]="activeTab === 2"
+          [class.active]="activeTab === 2"
+          id="tabContent-2"
+          role="tabpanel"
+          aria-labelledby="tab-2"
+        >
+          <ul class="list-group">
+            <li
+              *ngFor="let project of rejectedProjects"
+              class="list-group-item"
+              (click)="onSelectProject(project)"
+              style="cursor: pointer"
+            >
+              {{ project.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow mt-2">
+  <div class="card-header text-center fw-bold">Approved Project Proposals</div>
+  <div class="card-body">
+    <!-- Search Bar -->
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Search projects"
+      [(ngModel)]="searchQuery"
+      (input)="filterProjects()"
+    />
+
+    <!-- Project List -->
+    <ul class="list-group">
+      <li
+        *ngFor="let project of filteredProjects"
+        class="list-group-item list-group-item-action"
+        (click)="selectProject(project)"
+        role="button"
+      >
+        {{ project.name }}
+      </li>
+    </ul>
+  </div>
+</div>

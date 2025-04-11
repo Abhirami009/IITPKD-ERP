@@ -1,0 +1,25 @@
+<div class="card mt-1">
+    <div class="card-header">
+        <div class="d-flex">
+            <div class="p-2">{{status}}</div>
+        </div>
+  
+    </div>
+    <div class="card-body">
+        <div class="table-responsive-sm">
+            <table class="table table-hover">
+                <tbody>
+                    @for (project of projects; track project.projectid) {
+                   
+                    <tr>
+                        <td role="button" (click)="select(project)">
+                                {{ project.projectname}}
+                        </td>
+                    </tr>
+                    
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

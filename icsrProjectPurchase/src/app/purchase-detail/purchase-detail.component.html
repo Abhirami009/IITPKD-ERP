@@ -1,0 +1,214 @@
+
+
+
+	
+	<div class="card" *ngIf="project && project.projectname">
+	  <div class="card-header">
+		<h5>Project Purchase Details</h5>
+	  </div>
+	  <div class="card-body">
+		
+			<div *ngIf="currentstep < 1"  class="d-flex justify-content-between mt-1">
+				<button class="btn btn-outline-primary me-3" (click)="back()">
+					Back
+				</button>
+				<!-- <button class="btn btn-primary me-3" (click)="nextstep()">
+				  Next
+				</button> -->
+			  </div>
+		
+		
+			<div *ngIf="ispurchase">
+				<div class="d-flex flex-wrap">
+			<div class="d-flex flex-column flex-grow-1">
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Project Name: </span>{{ project.projectname }}</div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Project ID: </span>{{ project.projectid }}</div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Faculty: </span>{{ project.faculty }}</div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Faculty department: </span>{{ project.facultydept }}</div>
+			</div>
+
+
+			<div class="d-flex flex-column flex-grow-1">
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Grant No: </span>{{ project.projectgrantno }}</div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Duration: </span>{{ project.projectduration }} months</div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Category: </span>{{ project.projectcategory }} </div>
+				<div class="p-2 flex-grow-1"><span class="fw-bold">Faculty phone: </span>{{ project.facultyphone }}</div>
+			</div>
+		</div>
+			<div *ngIf="!ispending">
+			<div class="d-md-flex flex-wrap">
+				<div class="p-2 flex-grow-1">
+
+					<div class="card h-100">
+						<div class="card-body">
+								<div class="d-flex flex-column flex-grow-1">
+									<div class="p-2 flex-grow-1"><span class="fw-bold">Status :  </span>{{ project.status.status }}</div>
+									<div class="p-2 flex-grow-1"><span class="fw-bold">By : </span>{{ project.status.by }}</div>
+									<div class="p-2 flex-grow-1"><span class="fw-bold">Date :  </span>{{ project.status.date | date: 'dd-MM-yyyy' }} </div>
+									<div *ngIf="issentback">
+										<div class="p-2 flex-grow-1"><span class="fw-bold">Remarks :  </span>{{ project.remarks}} </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="!ispending && gt2">
+			<div class="d-md-flex flex-wrap">
+				<div class="p-2 flex-grow-1">
+					<div class="card h-100">
+						<div class="card-header text-center">Status history</div>
+						<div class="card-body">
+							<table class="table  table-hover table-responsive">
+								<thead>
+									<tr>
+										<th scope="col">Status</th>
+										<th scope="col">By</th>
+										<th scope="col">Date</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let status of project.statushist | slice:1">
+										<td>{{ status.status }}</td>
+										<td>{{ status.by }}</td>
+										<td>{{status.date | date:'dd-MM-yyyy' }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="d-md-flex flex-wrap">
+			<div class="p-2 flex-grow-1">
+				<div class="card h-100">
+					<div class="card-header text-center">Purchases</div>
+					<div class="card-body">
+						<table class="table  table-hover table-responsive">
+							<thead>
+								<tr>
+									<th scope="col">DESCRIPTION</th>
+									<th scope="col">CATEGORY</th>
+									<th scope="col">QUANTITY</th>
+									<th scope="col">ESTIMATED COST</th>
+									<th scope="col">PREFERRED VENDORS</th>
+									<th scope="col">JUSTIFICATION</th>
+									<th scope="col">DOCUMENT</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let purchase of project.purchases">
+									<td>{{ purchase.itemdesc }}</td>
+									<td>{{ purchase.itemcategory }}</td>
+									<td>{{ purchase.quantity }}</td>
+									<td>{{ purchase.estimatedcost }}</td>
+									<td>{{ purchase.preferredvendors }}</td>
+									<td>{{ purchase.justification }}</td>
+									<td> @if (purchase.document?.url) {<a [href]="purchase.document?.url" target="_blank" class="btn btn-outline-primary btn-sm">Open</a>}
+									@else {NA}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	 
+	  </div>
+
+	  <div *ngIf="isbudget">
+		<div class="d-flex flex-wrap">
+		<div class="d-md-flex flex-wrap">
+			<div class="p-2 flex-grow-1">
+				<div class="card h-100">
+					<div class="card-header text-center">Budget</div>
+					<div class="card-body">
+						<table class="table  table-hover table-responsive">
+							<thead>
+								<tr>
+									<th scope="col">Year No </th>
+									<th scope="col">Equipments </th>
+									<th scope="col">Consumables</th>
+									<th scope="col">Contingency</th>
+									<th scope="col">travel</th>
+									<th scope="col">manpower</th>
+									<th scope="col">overhead</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let bud of project.budget ">
+									<td>{{ bud.yearNo }}</td>
+									<td>{{ bud.equipments }}</td>
+									<td>{{ bud.consumables }}</td>
+									<td>{{ bud.contingency }}</td>
+									<td>{{ bud.travel }}</td>
+									<td>{{ bud.manpower }}</td>
+									<td>{{ bud.overhead }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	  </div>
+	  <div class="card h-100">
+		<div class="card-header text-center">Documents</div>
+		<div class="card-body">
+		  <div *ngIf="project.documents && project.documents.length > 0" class="mt-4">
+			<ul class="list-group">
+			  <li *ngFor="let pdf of project.documents; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+				<span>{{ pdf.name }}</span>
+				<a [href]="pdf.url" target="_blank" class="btn btn-outline-primary btn-sm">Open PDF</a>
+				<button class="btn btn-outline-danger btn-sm" (click)="deleteDoc(i)">
+				  <i class="fa-solid fa-trash"></i> Delete
+				</button>
+			  </li>
+			</ul>
+		  </div>
+	  
+		
+		  <div class="d-flex align-items-center mt-3">
+			<div class="flex-grow-1 me-2">
+			  <input type="file" id="documentUpload" (change)="onDocumentAdd($event)" class="form-control">
+			</div>
+			<button class="btn btn-outline-primary" (click)="uploadDocument()">Upload Document</button>
+		  </div>
+		</div>
+	  </div>
+	  
+</div>
+
+	<div *ngIf="currentstep < 1"  class="d-flex justify-content-between mt-3">
+		<!-- <button class="btn btn-outline-primary me-3" (click)="back()">
+			Back
+		</button> -->
+		<button class="btn btn-outline-primary me-3" (click)="nextstep()">
+	 	 Next
+		</button>
+ 	 </div>
+	
+
+	  <div *ngIf="currentstep >= 1"  class="d-flex justify-content-between mt-3">
+		<button class="btn btn-outline-primary" (click)="prevstep()">
+		  Back
+		</button>
+		<button class="btn btn-outline-primary" (click)="sendPreview()">
+			Preview
+		  </button>
+
+	  </div>
+	</div>
+	</div>
+
+	
+
+
+	<div *ngIf="!project" class="alert alert-info">
+	  Select a project to view its details.
+	</div>

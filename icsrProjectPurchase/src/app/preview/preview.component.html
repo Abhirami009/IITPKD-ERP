@@ -1,0 +1,179 @@
+<div class="container-fluid mt-2" *ngIf="project">
+	<div class="card shadow-sm mb-1">
+	  <div class="card-header text-center">
+		<h1>Project Purchase</h1>
+	  </div>
+	  <div class="card-body">		 
+		<div class="row mb-4">
+		  <div class="col-12">
+
+				<div class="row">
+					
+					<div class="d-flex flex-wrap">
+						<div class="d-flex flex-column flex-grow-1">
+							<div class="p-2 flex-grow-1"><span class="fw-bold">Project Name: </span>{{ project.projectname }}</div>
+							<div class="p-2 flex-grow-1"><span class="fw-bold">Faculty: </span>{{ project.faculty }}</div>
+							<div class="p-2 flex-grow-1"><span class="fw-bold">Project ID: </span>{{ project.projectid }}</div>
+						</div>
+			
+			
+						<div class="d-flex flex-column flex-grow-1">
+							<div class="p-2 flex-grow-1"><span class="fw-bold">Grant No: </span>{{ project.projectgrantno }}</div>
+							<div class="p-2 flex-grow-1"><span class="fw-bold">Duration: </span>{{ project.projectduration }} months</div>
+						</div>
+				
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+  		<div class="row mb-4">
+		  <div class="col-12">
+			<div class="card h-100">
+			  <div class="card-header text-center">Purchases</div>
+			  <div class="card-body p-0">
+				<div class="table-responsive">
+				  <table class="table table-hover table-striped mb-0">
+					<thead>
+					  <tr>
+						<th scope="col">DESCRIPTION</th>
+						<th scope="col">CATEGORY</th>
+						<th scope="col">QUANTITY</th>
+						<th scope="col">ESTIMATED COST</th>
+						<th scope="col">PREFERRED VENDORS</th>
+						<th scope="col">JUSTIFICATION</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor="let purchase of project.purchases">
+						<td>{{ purchase.itemdesc }}</td>
+						<td>{{ purchase.itemcategory }}</td>
+						<td>{{ purchase.quantity }}</td>
+						<td>{{ purchase.estimatedcost }}</td>
+						<td>{{ purchase.preferredvendors }}</td>
+						<td>{{ purchase.justification }}</td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="p-2 flex-grow-1"><span class="fw-bold">Remarks :  </span>{{ project.remarks }}</div>
+		
+  		<div class="row mb-4">
+		  <div class="col-12">
+			<div class="card h-100">
+			  <div class="card-header text-center">Budget</div>
+			  <div class="card-body p-0">
+				<div class="table-responsive">
+				  <table class="table table-hover table-striped mb-0">
+					<thead>
+					  <tr>
+						<th scope="col">Year No</th>
+						<th scope="col">Equipments</th>
+						<th scope="col">Consumables</th>
+						<th scope="col">Contingency</th>
+						<th scope="col">Travel</th>
+						<th scope="col">Manpower</th>
+						<th scope="col">Overhead</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor="let bud of project.budget">
+						<td>{{ bud.yearNo }}</td>
+						<td>{{ bud.equipments }}</td>
+						<td>{{ bud.consumables }}</td>
+						<td>{{ bud.contingency }}</td>
+						<td>{{ bud.travel }}</td>
+						<td>{{ bud.manpower }}</td>
+						<td>{{ bud.overhead }}</td>
+					  </tr>
+					</tbody>
+				  </table>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+  
+		<div *ngIf="project.documents && project.documents.length > 0" class="row">
+		  <div class="col-12">
+			<div class="card h-100">
+			  <div class="card-header text-center">Project Documents</div>
+			  <div class="card-body">
+				<ul class="list-group">
+				  <li *ngFor="let pdf of project.documents" class="list-group-item d-flex justify-content-between align-items-center">
+					<span>{{ pdf.name }}</span>
+					<a [href]="pdf.url" target="_blank" class="btn btn-outline-primary btn-sm">Open</a>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+		<div *ngIf="issentback">
+		<div class="container-fluid mt-2">
+			<input type="text" class="form-control mb-2" placeholder="Please mention the reason" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="comment">
+		  </div>
+		</div>
+		
+
+		<div class="card-footer d-flex justify-content-start">
+			<div class="d-flex justify-content-center">
+				<div *ngIf="isPending"> 
+					<button class="btn btn-outline-success me-2" (click)="approveProposal()">
+						 Approve
+					</button>
+					<button class="btn btn-outline-danger me-2" (click)="rejectProposal()">
+						Reject
+					</button>
+					<button class="btn btn-outline-warning me-2" (click)="sentbackProposal()">
+						Send back for clarification
+					</button>
+				
+
+				</div>
+				<div *ngIf="isApproved">
+					<button class="btn btn-primary me-2" (click)="forwardProposal()">
+						Forward to the vendor
+					</button>
+				</div>
+ 
+				 <div *ngIf="Isrecieved">
+					<button class="btn btn-primary me-2" (click)="toaccounts()">
+						Forward to the Accounts Section
+					</button>
+				</div>
+
+				<div *ngIf="Isforwarded">
+					<button class="btn btn-primary me-2" (click)="recieveditem()">
+						item recieved
+					</button>
+				</div>
+			
+
+				<button class="btn btn-outline-primary me-3" (click)="back()">
+					Back
+				</button>
+			  </div>
+
+			</div>
+
+		</div>
+
+
+	  </div>
+	</div>
+  
+
+
+  
+  <div *ngIf="!project" class="alert alert-info text-center">
+	Select a project to view its details.
+  </div>
+  

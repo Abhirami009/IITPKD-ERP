@@ -1,0 +1,82 @@
+<div class="card shadow">
+  <div class="card-header text-center fw-bold">Project Details</div>
+  <div class="card-body">
+    <form [formGroup]="projectForm">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="projectName" class="form-label fw-bold"
+            >Project Name</label
+          >
+          <input
+            type="text"
+            id="projectName"
+            formControlName="projectName"
+            class="form-control form-control-sm"
+            placeholder="Enter project name"
+          />
+          <label for="projectID" class="form-label fw-bold">Project ID</label>
+          <input
+            type="text"
+            id="projectID"
+            formControlName="projectID"
+            class="form-control form-control-sm"
+            placeholder="Enter project id"
+          />
+          <label for="projectDuration" class="form-label fw-bold"
+            >Duration</label
+          >
+          <input
+            type="string"
+            id="projectDuration"
+            formControlName="projectDuration"
+            class="form-control form-control-sm"
+            placeholder="Enter project duration"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="projectCategory" class="form-label fw-bold"
+            >Project Category</label
+          >
+          <input
+            type="text"
+            id="projectCategory"
+            formControlName="projectCategory"
+            class="form-control form-control-sm"
+            placeholder="Enter project category"
+          />
+          <label for="projectGrant" class="form-label fw-bold"
+            >Project Grant No.</label
+          >
+          <input
+            type="text"
+            id="projectGrant"
+            formControlName="projectGrant"
+            class="form-control form-control-sm"
+            placeholder="Enter project grant number"
+          />
+          <label for="projectBudget" class="form-label fw-bold"
+            >Budget (INR)</label
+          >
+          <input
+            type="number"
+            id="projectBudget"
+            formControlName="projectBudget"
+            class="form-control form-control-sm"
+            placeholder="Enter approved budget"
+          />
+        </div>
+        <div class="col-12">
+          <label for="projectDescription" class="form-label fw-bold"
+            >Project Description</label
+          >
+          <textarea
+            id="projectDescription"
+            formControlName="projectDescription"
+            class="form-control form-control-sm"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

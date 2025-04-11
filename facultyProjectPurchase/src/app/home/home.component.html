@@ -1,0 +1,234 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Side Panel Component -->
+    <div class="col-md-3">
+      <app-side-panel
+        (projectSelected)="handleProjectSelection($event)"
+      ></app-side-panel>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row justify-content-center">
+        <div *ngIf="!showPreview" class="card shadow">
+          <div class="text-center fw-bold fs-5 mt-2">
+            Project Purchase Proposal Form
+          </div>
+          <div class="card-body">
+            <!-- Project Details Card -->
+            <div class="col-lg-12 mb-4">
+              <app-project-card
+                [project]="selectedProject"
+                (projectFormChange)="onProjectFormChange($event)"
+              ></app-project-card>
+            </div>
+
+            <!-- Equipment Details Card -->
+            <div class="col-lg-12 mb-4">
+              <div class="card shadow">
+                <div class="card-header text-center fw-bold">
+                  Equipment Purchase Details
+                </div>
+                <div class="card-body">
+                  <form [formGroup]="equipmentForm">
+                    <div formArrayName="equipmentEntries" class="mb-3">
+                      <div
+                        *ngFor="
+                          let entry of equipmentEntries.controls;
+                          let i = index
+                        "
+                        [formGroupName]="i"
+                        class="row g-3 mt-3"
+                      >
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row g-3">
+                              <div class="col-md-4">
+                                <label
+                                  for="equipmentName{{ i }}"
+                                  class="form-label fw-bold"
+                                  >Equipment Name</label
+                                >
+                                <input
+                                  type="text"
+                                  id="equipmentName{{ i }}"
+                                  formControlName="equipmentName"
+                                  class="form-control form-control-sm"
+                                  placeholder="Enter equipment name"
+                                />
+                              </div>
+                              <div class="col-md-6">
+                                <label
+                                  for="equipmentSpecs{{ i }}"
+                                  class="form-label fw-bold"
+                                  >Equipment Specifications</label
+                                >
+                                <input
+                                  type="text"
+                                  id="equipmentSpecs{{ i }}"
+                                  formControlName="equipmentSpecs"
+                                  class="form-control form-control-sm"
+                                  placeholder="Enter equipment specifications"
+                                />
+                              </div>
+                              <div class="col-md-2">
+                                <label
+                                  for="equipmentQuantity{{ i }}"
+                                  class="form-label fw-bold"
+                                  >Quantity</label
+                                >
+                                <input
+                                  type="number"
+                                  id="equipmentQuantity{{ i }}"
+                                  formControlName="equipmentQuantity"
+                                  class="form-control form-control-sm"
+                                  placeholder="Quantity"
+                                />
+                              </div>
+                              <div class="col-md-12">
+                                <label
+                                  for="equipmentJustification{{ i }}"
+                                  class="form-label fw-bold"
+                                  >Justification</label
+                                >
+                                <input
+                                  type="text"
+                                  id="equipmentJustification{{ i }}"
+                                  formControlName="equipmentJustification"
+                                  class="form-control form-control-sm"
+                                  placeholder="Justification"
+                                />
+                              </div>
+
+                              <div class="col-md-12" formGroupName="file">
+                                <label
+                                  for="equipmentFileURL{{ i }}"
+                                  class="form-label fw-bold"
+                                >
+                                  File
+                                </label>
+                                <input
+                                  type="file"
+                                  id="fileUpload{{ i }}"
+                                  (change)="addEquipmentFile($event, i)"
+                                  class="form-control"
+                                />
+                                <div
+                                  *ngIf="
+                                    entry.get('file.documentName')?.value &&
+                                    entry.get('file.documentURL')?.value
+                                  "
+                                  class="'mt-4"
+                                >
+                                  <a
+                                    [href]="
+                                      entry.get('file.documentURL')?.value
+                                    "
+                                    target="_blank"
+                                    class="btn btn-outline-primary btn-sm mt-2"
+                                    >View Document</a
+                                  >
+                                </div>
+                              </div>
+
+                              <div class="col-md-12 mt-4 text-end">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-primary"
+                                  (click)="removeEquipmentEntry(i)"
+                                  data-bs-toggle="tooltip"
+                                  title="Remove Equipment"
+                                >
+                                  <i class="fa-solid fa-xmark"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary ms-1"
+                      (click)="addEquipmentEntry()"
+                      data-bs-toggle="tooltip"
+                      title="Add Equipment"
+                    >
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document Details Card -->
+            <div class="col-lg-12 mb-4">
+              <div class="card shadow">
+                <div class="card-header text-center fw-bold">
+                  Document Details
+                </div>
+                <div class="card-body">
+                  <form [formGroup]="documentForm">
+                    <div class="form-group mb-3">
+                      <input
+                        type="file"
+                        formControlName="documentURL"
+                        class="form-control form-control-sm"
+                        (change)="addDocumentFile($event)"
+                      />
+                    </div>
+                  </form>
+                  <div *ngIf="documentURL">
+                    <a
+                      [href]="documentURL"
+                      target="_blank"
+                      class="btn btn-outline-primary btn-sm"
+                      >View Document</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preview and Submit -->
+            <div class="col-lg-12 text-center">
+              <button
+                class="btn btn-outline-primary"
+                (click)="generatePreview()"
+              >
+                Generate Preview
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview Screen -->
+        <div *ngIf="showPreview" class="card shadow">
+          <app-view-screen
+            [projectData]="projectData"
+            [equipmentEntries]="equipmentEntries"
+            [documentFile]="documentFile"
+            [submissionDate]="submissionDate"
+            (exitPreview)="exitPreview()"
+          >
+          </app-view-screen>
+          <div class="d-flex justify-content-between p-3 px-5">
+            <div class="text-start">
+              <button class="btn btn-outline-primary" (click)="exitPreview()">
+                Back
+              </button>
+            </div>
+            <div class="text-end">
+              <button
+                *ngIf="showSubmitButton"
+                class="btn btn-outline-primary"
+                (click)="onSubmit()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
